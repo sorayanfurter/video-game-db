@@ -12,11 +12,11 @@ export class HttpHeadersInterceptor implements HttpInterceptor{
     ): Observable<HttpEvent<any>> {
       req = req.clone({
         setHeaders: {
-          'x-rapidapi-key' : 'd4dc820479d34f71b60c01451cc14060',
+          'x-rapidapi-key' : 'b5f45968d5msh3663c8c1c265936p115c19jsn4b53e75f9658',
           'x-rapidapi-host' : 'rawg-video-games-database.p.rapidapi.com',
         },
         setParams: {
-          key: 'd4dc820479d34f71b60c01451cc14060',
+          key: 'aa975b83bf8d4f14b6423e9162134e48',
         }
       });
       return next.handle(req);
