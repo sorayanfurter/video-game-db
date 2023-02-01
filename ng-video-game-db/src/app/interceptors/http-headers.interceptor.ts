@@ -16,7 +16,7 @@ export class HttpHeadersInterceptor implements HttpInterceptor{
           'x-rapidapi-host' : 'rawg-video-games-database.p.rapidapi.com',
         },
         setParams: {
-          key: 'aa975b83bf8d4f14b6423e9162134e48',
+          key: '49aec7abebd843a780696a520c135abc',
         }
       });
       return next.handle(req);
