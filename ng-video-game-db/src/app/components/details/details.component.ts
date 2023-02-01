@@ -1,4 +1,3 @@
-
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -8,7 +7,7 @@ import { HttpService } from 'src/app/services/http.service';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit, OnDestroy {
   gameRating = 0;
@@ -20,10 +19,9 @@ export class DetailsComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private httpService: HttpService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-   this.game = this.game
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
       this.gameId = params['id'];
       this.getGameDetails(this.gameId);
@@ -63,5 +61,4 @@ export class DetailsComponent implements OnInit, OnDestroy {
       this.routeSub.unsubscribe();
     }
   }
-
 }

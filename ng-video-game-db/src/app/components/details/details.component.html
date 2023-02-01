@@ -5,6 +5,7 @@
       src="{{ game.background_image }}"
       alt="background image"
     />
+    <p *ngIf="!game.background_image">No image</p>
   </div>
   <div class="game-content">
     <div class="details-wrapper">
@@ -38,7 +39,7 @@
           >
         </div>
       </div>
-      <!--here will go tabs-->
+      <app-game-tabs [game]="game"></app-game-tabs>
     </div>
   </div>
 </div>

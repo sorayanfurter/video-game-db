@@ -3,14 +3,13 @@ import { Injectable } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment as env } from 'src/environments/environment';
-import { APIResponse, Game } from '../models';
+import { APIResponse, Game, Screenshots } from '../models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HttpService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getGameList(
     ordering: string,
@@ -29,21 +28,21 @@ export class HttpService {
 
   getGameDetails(id: string): Observable<Game> {
     const gameInfoRequest = this.http.get(`${env.BASE_URL}/games/${id}`);
-    /*const gameTrailersRequest = this.http.get(
+    const gameTrailersRequest = this.http.get(
       `${env.BASE_URL}/games/${id}/movies`
     );
-    const gameScreenshotsRequest = this.http.get(
-      `${env.BASE_URL}/games/${id}/screenshots`
-    );*/
+    const gameScreenshotsRequest = `${env.BASE_URL}/games/{game_pk}/screenshots`;
 
     return forkJoin({
       gameInfoRequest,
-
+      gameTrailersRequest,
+      gameScreenshotsRequest,
     }).pipe(
       map((resp: any) => {
         return {
           ...resp['gameInfoRequest'],
-
+          screenshots: resp['gameScreenshotsRequest']?.results,
+          trailers: resp['gameTrailersRequest']?.results,
         };
       })
     );
