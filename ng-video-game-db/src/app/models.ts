@@ -1,3 +1,5 @@
+import { ɵHttpInterceptingHandler } from "@angular/common/http";
+
 export interface Game {
   id: string;
   background_image: string ;
@@ -41,8 +43,17 @@ interface Publishers {
 }
 
  export interface Screenshots {
-  game_pk: string;
-  image: string;
+
+
+  count: number;
+  next: string;
+  previous: string;
+  results: {
+    image: string;
+    hidden: boolean;
+  }
+
+
 }
 
 interface Trailer {
