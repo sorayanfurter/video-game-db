@@ -2,7 +2,8 @@ import { ɵHttpInterceptingHandler } from "@angular/common/http";
 
 export interface Game {
   id: string;
-  background_image: string ;
+  game_pk:string;
+  background_image?: string ;
   name: string;
   released: string;
   metacritic_url: string;
@@ -15,7 +16,8 @@ export interface Game {
   ratings: Array<Rating>;
   screenshots: Array<Screenshots>;
   trailers: Array<Trailer>;
-  game_pk:string;
+
+
 }
 
 export interface APIResponse<T> {
@@ -42,19 +44,19 @@ interface Publishers {
   title: string;
 }
 
- export interface Screenshots {
+  interface Screenshots {
 
 
-  count: number;
-  next: string;
-  previous: string;
-  results: {
-    image: string;
-    hidden: boolean;
-  }
+
+     image: string;
+     hidden: boolean;
+
+    }
 
 
-}
+
+
+
 
 interface Trailer {
   data: {
