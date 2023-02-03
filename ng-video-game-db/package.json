@@ -1,6 +1,10 @@
 {
   "name": "ng-video-game-db",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sorayanfurter/video-game-db.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
